@@ -1,0 +1,53 @@
+When something is added using 
+git add  <filename>
+git commit -m "<commit message>"  ---> to add changes to local repo
+it comes in staging area
+git diff       --->it shows what changes are modified
+git status  --> to  check status
+git log   -->to see history or commits
+
+To see what is present in previous version we need it's id which we can get it in git log then
+git show <id>:<path of file to see>
+i.e git show fe54d0e0ddb20e38d9e42:index.html
+it only works for single file and not good for big applications
+Inorder to reflex previous version multiple or single file on current version we can use checkout
+ git checkout 
+fe54d0e0ddb20e38d9e4258ac3fb9a352a2ae229 -- *
+here * for all file we can specific filename applications
+to get back to original version we have to enter
+ git checkout master -- *
+
+ In order to get back to previous saved file we can write
+ git restore .
+ to get back to previously saved point
+
+ if a file is added / staged bymistakenly and want to get back then write 
+ git restore --staged .
+ and then
+ git restore . 
+
+ in order to undo the commit we use reset  
+ git reset --hard HEAD^
+above cmd is used when we complete remove commit and get back to previous commit
+we should hard only when sure about it 
+  git reset --soft HEAD
+
+  git log -p -2    (to see diffirences fo 2 changes)
+  git log --stat   (to see summary of changes)
+  git log --pretty=oneline (to see just oneline changes in each commit)
+  git log -S '<tag added>'   -->to see when the tag is added ie in which version
+
+  Till now we are doing changes in local repo
+  to make this chaneges to others we need to add it to remote repo, to do that
+     
+git remote --> to check if linked with remote repository
+git remote -v   ->to check to which repository it is linked to 
+
+to bring files from remote repo to local repo pull
+git pull  
+
+///branching and merging
+git branch   -> shows list of branches
+git branch <branch-name>   -> to create a bracnh
+git  checkout <branch-name   ->to select that branch
+git merge <branch name>  -> to merge to main branch  (make sure u r at main brach first)
